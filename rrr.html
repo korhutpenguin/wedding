@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу Михаила и Кристины</title>
+    <style>
+        :root {
+            --primary-color: #8c7a6b;
+            --bg-color: #fcfbfa;
+            --text-color: #333333;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            text-align: center;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        header {
+            padding: 100px 20px;
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://unsplash.com') no-repeat center center/cover;
+            margin-bottom: 40px;
+        }
+        h1 { font-size: 3rem; color: var(--primary-color); font-weight: normal; margin-bottom: 20px; }
+        .date { font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        
+        section { padding: 40px 20px; margin-bottom: 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h2 { font-size: 2rem; color: var(--primary-color); margin-bottom: 20px; font-weight: normal; }
+        
+        .timeline { list-style: none; text-align: left; max-width: 400px; margin: 0 auto; }
+        .timeline li { margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--primary-color); }
+        .time { font-weight: bold; color: var(--primary-color); }
+
+        .colors { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        .color-circle { width: 50px; height: 50px; border-radius: 50%; border: 1px solid #ddd; }
+
+        form { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; }
+        input, select, button { padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; font-size: 1rem; }
+        button { background-color: var(--primary-color); color: white; border: none; cursor: pointer; transition: background 0.3s; }
+        button:hover { background-color: #756456; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <p class="date">12 . 09 . 2026</p>
+            <h1>Михаил & Кристина</h1>
+            <p>Приглашаем вас разделить с нами этот особенный день!</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Дорогие близкие и друзья!</h2>
+            <p>В нашей жизни зарождается новая прекрасная история — наша семья. Мы будем счастливы видеть вас на торжестве, посвященном нашему дню бракосочетания.</p>
+        </section>
+
+        <section>
+            <h2>Программа дня</h2>
+            <ul class="timeline">
+                <li><span class="time">16:00</span> — Сбор гостей и приветственный фуршет</li>
+                <li><span class="time">16:30</span> — Торжественная церемония регистрации</li>
+                <li><span class="time">18:00</span> — Свадебный ужин и праздничная программа</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Дресс-код</h2>
+            <p>Мы будем рады, если вы поддержите цветовую гамму нашей свадьбы в своих нарядах:</p>
+            <div class="colors">
+                <div class="color-circle" style="background-color: #E6D7CB;" title="Бежевый"></div>
+                <div class="color-circle" style="background-color: #C2B4A6;" title="Капучино"></div>
+                <div class="color-circle" style="background-color: #8C7A6B;" title="Коричневый"></div>
+                <div class="color-circle" style="background-color: #A3B19B;" title="Оливковый"></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Подтвердите ваше присутствие</h2>
+            <p style="margin-bottom: 20px;">Пожалуйста, ответьте на вопросы до 15 августа 2026 года.</p>
+            
+            <form id="rsvpForm">
+                <input type="text" id="guestName" placeholder="Ваше Имя и Фамилия" required>
+                <select id="attendance" required>
+                    <option value="" disabled selected>Сможете ли вы прийти?</option>
+                    <option value="Да, приду">Да, с удовольствием приду</option>
+                    <option value="Приду с парой">Приду с парой</option>
+                    <option value="Не смогу">К сожалению, не смогу</option>
+                </select>
+                <input type="text" id="preferences" placeholder="Пожелания по меню / алкоголю">
+                <button type="submit" id="submitBtn">Отправить ответ</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // ВСТАВЬТЕ СЮДА ВАШУ ССЫЛКУ ИЗ ШАГА 2 МЕЖДУ КАВЫЧКАМИ:
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza5408nofoVby44zwsssadZjXEXhuhvmG3g2_bFtKuNZLnznpwwp_stlcbFdYkyPycOA/exec';
+
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const name = document.getElementById('guestName').value;
+            const attendance = document.getElementById('attendance').value;
+            const preferences = document.getElementById('preferences').value;
+            
+            // Блокируем кнопку на время отправки
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Отправка...';
+
+            const formData = {
+                name: name,
+                attendance: attendance,
+                preferences: preferences
+            };
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Важно для обхода ограничений CORS в Google Scripts
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                alert('Спасибо, ' + name + '! Ваш ответ успешно записан в таблицу.');
+                document.getElementById('rsvpForm').reset();
+            })
+            .catch(error => {
+                alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+                console.error('Ошибка:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Отправить ответ';
+            });
+        });
+    </script>
+
+</body>
+</html>
