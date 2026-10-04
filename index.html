@@ -4,81 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу Михаила и Кристины</title>
+    <!-- Подключаем элегантный свадебный шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #8c7a6b;
-            --bg-color: #fcfbfa;
-            --text-color: #333333;
+            --primary-color: #707A5E; /* Оливковый цвет */
+            --accent-color: #8C6B53;  /* Коричневый акцент */
+            --bg-color: #E2E7D5;      /* Нежный оливковый фон сайта */
+            --card-bg: #F4F6F0;       /* Цвет подложки для блоков */
+            --text-color: #3D4434;
         }
+        
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Cormorant Garamond', serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             text-align: center;
+            font-size: 1.25rem;
         }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        .container { max-width: 500px; margin: 0 auto; padding: 0 15px 40px 15px; }
+        
+        /* Главная фотография молодоженов вверху */
+        .main-photo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-bottom: 4px solid var(--primary-color);
+        }
         
         header {
-            padding: 100px 20px;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://unsplash.com') no-repeat center center/cover;
-            margin-bottom: 40px;
+            padding: 40px 20px;
+            margin-bottom: 20px;
         }
-        h1 { font-size: 3rem; color: var(--primary-color); font-weight: normal; margin-bottom: 20px; }
-        .date { font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
         
-        section { padding: 40px 20px; margin-bottom: 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        h2 { font-size: 2rem; color: var(--primary-color); margin-bottom: 20px; font-weight: normal; }
-        h3 { font-size: 1.2rem; color: var(--primary-color); margin: 25px 0 10px 0; font-weight: normal; }
+        .names {
+            font-size: 3.5rem;
+            font-style: italic;
+            color: var(--primary-color);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
         
-        .timeline { list-style: none; text-align: left; max-width: 400px; margin: 0 auto; }
-        .timeline li { margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--primary-color); }
-        .time { font-weight: bold; color: var(--primary-color); }
-
-        .colors { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
-        .color-circle { width: 45px; height: 45px; border-radius: 50%; border: 1px solid #e0e0e0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); }
-
-        form { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; text-align: left; }
-        label.form-label { font-weight: bold; color: var(--primary-color); margin-bottom: -5px; display: block; }
-        input[type="text"], select, button { padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; font-size: 1rem; width: 100%; }
+        .main-date {
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+            border-top: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+            display: inline-block;
+            padding: 5px 20px;
+            margin-top: 10px;
+        }
         
-        .checkbox-group { display: flex; flex-direction: column; gap: 8px; background: #fdfdfd; padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        .checkbox-label { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; cursor: pointer; }
-        .checkbox-label input { width: 18px; height: 18px; cursor: pointer; }
+        /* Фигурные плашки-переходы под заголовки */
+        .vintage-frame {
+            background-image: url('frame.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 280px;
+            height: 90px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+        }
 
-        button { background-color: var(--primary-color); color: white; border: none; cursor: pointer; transition: background 0.3s; font-weight: bold; }
-        button:hover { background-color: #756456; }
-        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        .vintage-frame h2 {
+            font-size: 2rem; 
+            color: #5d4a41; /* Более темный винтажный оттенок для читаемости на розовой плашке */
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+        }
+        
+        /* Оформление карточек */
+        section { 
+            padding: 40px 25px; 
+            margin-bottom: 30px; 
+            background: var(--card-bg); 
+            border-radius: 30px 30px 0 0; 
+            box-shadow: 0 10px 25px rgba(112, 122, 94, 0.15);
+            border: 1px solid rgba(112, 122, 94, 0.2);
+        }
+        
+        h3 { 
+            font-size: 1.5rem; 
+            color: var(--primary-color); 
+            margin: 25px 0 10px 0; 
+            font-weight: 600; 
+        }
+        
+        /* Тайминг */
+        .timeline { list-style: none; text-align: left; max-width: 320px; margin: 0 auto; }
+        .timeline li { 
+            margin-bottom: 15px; 
+            padding-left: 25px; 
+            position: relative;
+        }
+        .timeline li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        .time { font-weight: 600; color: var(--primary-color); font-size: 1.4rem; margin-right: 10px; }
+
+        /* Кружочки дресс-кода */
+        .colors { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px auto 10px auto; max-width: 320px; }
+        .color-circle { 
+            width: 48px; 
+            height: 48px; 
+            border-radius: 50%; 
+            border: 2px solid #ffffff; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        /* Форма RSVP */
+        form { display: flex; flex-direction: column; gap: 15px; max-width: 350px; margin: 0 auto; text-align: left; }
+        label.form-label { font-weight: 600; color: var(--primary-color); margin-bottom: -5px; display: block; font-size: 1.2rem; }
+        
+        input[type="text"], select, button { 
+            padding: 14px; 
+            border: 1px solid rgba(112, 122, 94, 0.4); 
+            border-radius: 12px; 
+            font-family: inherit; 
+            font-size: 1.1rem; 
+            width: 100%; 
+            background: #ffffff;
+        }
+        
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(112, 122, 94, 0.3);
+        }
+        
+        .checkbox-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            background: #ffffff; 
+            padding: 15px; 
+            border: 1px solid rgba(112, 122, 94, 0.3); 
+            border-radius: 12px; 
+        }
+        .checkbox-label { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; cursor: pointer; }
+        .checkbox-label input { width: 20px; height: 20px; cursor: pointer; accent-color: var(--primary-color); }
+
+        button { 
+            background-color: var(--primary-color); 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            font-weight: 600; 
+            font-size: 1.3rem;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(112, 122, 94, 0.3);
+        }
+        button:hover { background-color: #5B644D; transform: translateY(-1px); }
+        button:disabled { background-color: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <p class="date">17 . 07 . 2027</p>
-            <h1>Михаил & Кристина</h1>
-            <p>Приглашаем вас разделить с нами этот особенный день!</p>
-        </div>
-    </header>
+    <!-- Главное фото молодоженов -->
+    <img src="photo.png" alt="Михаил и Кристина" class="main-photo">
 
     <div class="container">
+        
+        <header>
+            <h1 class="names">Михаил<br>&<br>Кристина</h1>
+            <p style="font-style: italic;">Приглашаем вас разделить с нами этот особенный день!</p>
+            <div class="main-date">17 . 07 . 2027</div>
+        </header>
+
         <section>
-            <h2>Дорогие близкие и друзья!</h2>
+            <div class="vintage-frame">
+                <h2>Дорогие близкие!</h2>
+            </div>
             <p>В нашей жизни зарождается новая прекрасная история — наша семья. Мы будем счастливы видеть вас на торжестве, посвященном нашему дню бракосочетания.</p>
         </section>
 
         <section>
-            <h2>Программа дня</h2>
+            <div class="vintage-frame">
+                <h2>Программа дня</h2>
+            </div>
             <ul class="timeline">
-                <li><span class="time">16:00</span> — Сбор гостей и приветственный фуршет</li>
-                <li><span class="time">16:30</span> — Торжественная церемония регистрации</li>
-                <li><span class="time">18:00</span> — Свадебный ужин и праздничная программа</li>
+                <li><span class="time">16:00</span> Сбор гостей и фуршет</li>
+                <li><span class="time">16:30</span> Церемония регистрации</li>
+                <li><span class="time">18:00</span> Свадебный ужин</li>
             </ul>
         </section>
 
         <section>
-            <h2>Дресс-код</h2>
+            <div class="vintage-frame">
+                <h2>Дресс-код</h2>
+            </div>
             <p>Мы будем очень рады, если при выборе праздничных нарядов вы поддержите цветовую гамму нашей свадьбы:</p>
             
             <h3>Для прекрасных дам:</h3>
@@ -95,12 +226,14 @@
             </div>
 
             <h3>Для уважаемых мужчин:</h3>
-            <p style="margin-top: 5px; text-align: center;">Будем признательны, если вы выберете темный низ (брюки) и светлую рубашку или поло.</p>
+            <p style="margin-top: 5px;">Будем признательны, если вы выберете темный низ (брюки) и светлую рубашку или поло.</p>
         </section>
 
         <section>
-            <h2>Подтвердите ваше присутствие</h2>
-            <p style="margin-bottom: 20px; text-align: center;">Пожалуйста, ответьте на вопросы до 15 июня 2027 года.</p>
+            <div class="vintage-frame">
+                <h2>Ждем вас!</h2>
+            </div>
+            <p style="margin-bottom: 25px;">Пожалуйста, подтвердите ваше присутствие, ответив на вопросы до 15 июня 2027 года.</p>
             
             <form id="rsvpForm">
                 <label class="form-label" for="guestName">Ваше имя:</label>
@@ -118,7 +251,7 @@
                     <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Красное вино"> Красное вино</label>
                     <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Белое вино"> Белое вино</label>
                     <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Игристое вино / Шампанское"> Игристое вино / Шампанское</label>
-                    <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Крепкий алкоголь"> Крепкий алкоголь (виски/водка/коньяк)</label>
+                    <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Крепкий алкоголь"> Крепкий алкоголь</label>
                     <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Безалкогольные напитки"> Не пью алкоголь</label>
                 </div>
 
@@ -137,7 +270,6 @@
             const name = document.getElementById('guestName').value;
             const attendance = document.getElementById('attendance').value;
             
-            // Собираем все выбранные чекбоксы по алкоголю в одну строчку через запятую
             const checkedAlcohol = Array.from(document.querySelectorAll('input[name="alcohol"]:checked'))
                                         .map(cb => cb.value)
                                         .join(', ');
