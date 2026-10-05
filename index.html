@@ -37,7 +37,7 @@
             padding: 0;
         }
         
-        /* Исправленный блок адреса: безопасный переход и выделение текста */
+        /* Блок адреса с возвращенными крупными шрифтами */
         .address-section {
             margin: 20px 10px;
             background: #fdfefb; 
@@ -52,7 +52,7 @@
             background-color: #f6f8f0;
         }
 
-        /* Настоящая ссылка поверх плашки, которая без сбоев открывается на iOS и Android */
+        /* Кликабельная ссылка-обертка, которая стабильно работает на ПК и телефонах */
         .map-redirect-link {
             position: absolute;
             top: 0;
@@ -63,27 +63,27 @@
             text-decoration: none;
         }
 
-        /* Контейнер с текстом: pointer-events: auto разрешает выделение */
+        /* Текстовый контейнер: pointer-events: auto позволяет выделять текст, не ломая клик по ссылке сзади */
         .address-text-container {
-            padding: 20px 15px;
+            padding: 25px 20px;
             position: relative;
             z-index: 2;
             pointer-events: auto;
         }
 
         .place-title {
-            font-size: 1.4rem;
+            font-size: 1.8rem; /* Возвращен исходный крупный размер */
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: var(--primary-color);
             font-style: italic;
             line-height: 1.2;
         }
 
         .place-address {
-            font-size: 0.85rem;
+            font-size: 1.1rem; /* Возвращен исходный крупный размер */
             display: block;
-            line-height: 1.35;
+            line-height: 1.4;
             color: #55443b;
             font-weight: 400;
         }
@@ -159,12 +159,12 @@
         <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Стилизованный блок адреса: безопасный переход и выделение текста -->
+        <!-- Стилизованный блок адреса с восстановленным крупным шрифтом и универсальной ссылкой -->
         <div class="address-section">
-            <!-- Прямая нативная ссылка для мобильных браузеров -->
             <a class="map-redirect-link" href="https://yandex.ru/maps/10174/saint-petersburg-and-leningrad-oblast/house/territoriya_troitskaya_gora_33a/ZkAYfgRlQEIHQFtjfXR3dnVhYw==/?ll=29.835970%2C59.867927&z=17" target="_blank"></a>
             
             <div class="address-text-container">
+                <span class="names" style="display:none;">Михаил & Кристина</span>
                 <span class="place-title">Локация торжества: "Амбар №1"</span>
                 <span class="place-address">территория Троицкая Гора, 33А, посёлок Троицкая Гора, Низинское сельское поселение, Ломоносовский район, Ленинградская область, 188501</span>
             </div>
