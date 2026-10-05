@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу Михаила и Кристины</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
             --primary-color: #5d4a41; 
-            --bg-color: #D1DC93; /* Идеальный фисташковый цвет фона макетов */
+            --bg-color: #D1DC93; /* Фисташковый цвет фона макетов */
             --text-color: #4a3b32;
         }
         
@@ -37,42 +37,31 @@
             padding: 0;
         }
         
-        /* Блок адреса с возвращенными крупными шрифтами */
-        .address-section {
-            margin: 20px 10px;
+        /* Блок-ссылка адреса с возвращенными крупными шрифтами */
+        .address-section-link {
+            display: block;
+            margin: 20px 15px;
             background: #fdfefb; 
             border-radius: 25px; 
             box-shadow: 0 10px 25px rgba(93, 74, 65, 0.1);
             border: 1px solid rgba(93, 74, 65, 0.15);
-            position: relative;
+            text-decoration: none;
+            color: inherit;
             transition: background-color 0.3s ease;
         }
 
-        .address-section:hover {
+        .address-section-link:hover {
             background-color: #f6f8f0;
         }
 
-        /* Кликабельная ссылка-обертка, которая стабильно работает на ПК и телефонах */
-        .map-redirect-link {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            text-decoration: none;
-        }
-
-        /* Текстовый контейнер: pointer-events: auto позволяет выделять текст, не ломая клик по ссылке сзади */
+        /* Текстовый контейнер с включенным pointer-events для возможности выделения */
         .address-text-container {
             padding: 25px 20px;
-            position: relative;
-            z-index: 2;
             pointer-events: auto;
         }
 
         .place-title {
-            font-size: 1.8rem; /* Возвращен исходный крупный размер */
+            font-size: 1.8rem; /* Исходный крупный размер шрифта */
             display: block;
             margin-bottom: 8px;
             color: var(--primary-color);
@@ -81,7 +70,7 @@
         }
 
         .place-address {
-            font-size: 1.1rem; /* Возвращен исходный крупный размер */
+            font-size: 1.1rem; /* Исходный крупный размер шрифта */
             display: block;
             line-height: 1.4;
             color: #55443b;
@@ -159,16 +148,13 @@
         <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Стилизованный блок адреса с восстановленным крупным шрифтом и универсальной ссылкой -->
-        <div class="address-section">
-            <a class="map-redirect-link" href="https://yandex.ru/maps/10174/saint-petersburg-and-leningrad-oblast/house/territoriya_troitskaya_gora_33a/ZkAYfgRlQEIHQFtjfXR3dnVhYw==/?ll=29.835970%2C59.867927&z=17" target="_blank"></a>
-            
+        <!-- Стилизованный блок-ссылка адреса (надежно кликается везде) -->
+        <a class="address-section-link" href="https://yandex.ru" target="_blank">
             <div class="address-text-container">
-                <span class="names" style="display:none;">Михаил & Кристина</span>
                 <span class="place-title">Локация торжества: "Амбар №1"</span>
                 <span class="place-address">территория Троицкая Гора, 33А, посёлок Троицкая Гора, Низинское сельское поселение, Ломоносовский район, Ленинградская область, 188501</span>
             </div>
-        </div>
+        </a>
 
         <!-- Вторая картинка (Информация о свадьбе) -->
         <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
@@ -204,7 +190,7 @@
     </div>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza5408nofoVby44zwsssadZjXEXhuhvmG3g2_bFtKuNZLnznpwwp_stlcbFdYkyPycOA/exec';
+        const GOOGLE_SCRIPT_URL = 'https://google.com';
 
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
