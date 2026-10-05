@@ -6,7 +6,7 @@
     <title>Приглашение на свадьбу Михаила и Кристины</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #5d4a41;
@@ -57,8 +57,8 @@
 
         /* ===== ТАЙМЕР ===== */
         .timer-section {
-            margin: 22px 15px;
-            padding: 25px 20px;
+            margin: 18px 15px;
+            padding: 18px 18px 16px;
             background: var(--card);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -67,48 +67,52 @@
         }
 
         .timer-title {
-            font-family: 'Marck Script', cursive;
-            font-size: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
             color: var(--primary);
-            margin-bottom: 6px;
-            line-height: 1.1;
+            margin-bottom: 2px;
+            line-height: 1.2;
+            font-weight: 400;
         }
 
         .timer-subtitle {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: #7a685c;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             font-style: italic;
+            letter-spacing: 0.02em;
         }
 
         .timer-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
+            gap: 6px;
         }
 
         .timer-cell {
-            background: linear-gradient(180deg, #f6f8f0 0%, #eef2e3 100%);
+            background: transparent;
             border-radius: var(--radius-sm);
-            padding: 12px 6px;
+            padding: 8px 4px 6px;
             border: 1px solid rgba(112, 122, 94, 0.18);
         }
 
         .timer-num {
             display: block;
-            font-size: 1.9rem;
+            font-size: 1.45rem;
             font-weight: 600;
             color: var(--accent);
             line-height: 1;
+            font-variant-numeric: tabular-nums;
         }
 
         .timer-lbl {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             color: #7a685c;
-            margin-top: 4px;
+            margin-top: 5px;
         }
 
         /* ===== АДРЕС ===== */
@@ -136,12 +140,14 @@
         .address-text-container { padding: 25px 22px; }
 
         .place-title {
-            font-family: 'Marck Script', cursive;
-            font-size: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.7rem;
             display: block;
             margin-bottom: 8px;
             color: var(--primary);
-            line-height: 1.15;
+            line-height: 1.2;
+            font-weight: 400;
         }
 
         .place-address {
@@ -168,42 +174,6 @@
 
         .address-section-link:hover .address-cta::after { transform: translateX(4px); }
 
-        /* ===== КНОПКИ-ДЕЙСТВИЯ ===== */
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 15px;
-            animation: fadeInUp 0.9s ease-out 0.3s both;
-        }
-
-        .btn-action {
-            flex: 1 1 calc(50% - 5px);
-            min-width: 160px;
-            padding: 14px 16px;
-            background: var(--card);
-            border: var(--border);
-            border-radius: var(--radius-sm);
-            color: var(--primary);
-            text-decoration: none;
-            font-family: inherit;
-            font-size: 1.05rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 12px rgba(93, 74, 65, 0.06);
-        }
-
-        .btn-action:hover {
-            background: #f6f8f0;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(93, 74, 65, 0.1);
-        }
-
         /* ===== RSVP ===== */
         section.rsvp-section {
             padding: 30px 25px;
@@ -216,8 +186,9 @@
         }
 
         h2 {
-            font-family: 'Marck Script', cursive;
-            font-size: 2.3rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.1rem;
             color: var(--primary);
             margin-bottom: 12px;
             font-weight: 400;
@@ -370,11 +341,13 @@
         .modal-icon { font-size: 3rem; margin-bottom: 12px; display: block; }
 
         .modal-title {
-            font-family: 'Marck Script', cursive;
-            font-size: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.9rem;
             color: var(--primary);
             margin-bottom: 10px;
             line-height: 1.15;
+            font-weight: 400;
         }
 
         .modal-text {
@@ -410,14 +383,12 @@
         /* ===== МОБИЛЬНАЯ ===== */
         @media (max-width: 420px) {
             body { font-size: 1.15rem; }
-            .timer-title, .place-title { font-size: 1.7rem; }
-            h2, .modal-title { font-size: 1.9rem; }
-            .timer-num { font-size: 1.6rem; }
-            .timer-lbl { font-size: 0.75rem; }
+            .timer-title, .place-title { font-size: 1.45rem; }
+            h2, .modal-title { font-size: 1.8rem; }
+            .timer-num { font-size: 1.25rem; }
+            .timer-lbl { font-size: 0.65rem; }
             section.rsvp-section { padding: 25px 18px; margin: 20px 10px 10px; }
             .address-section-link { margin: 15px 10px; }
-            .actions { margin: 15px 10px; }
-            .btn-action { flex: 1 1 100%; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -436,7 +407,7 @@
 
         <section class="timer-section" aria-label="Таймер до свадьбы">
             <div class="timer-title">До нашей свадьбы</div>
-            <div class="timer-subtitle">17 июля 2027, 16:00</div>
+            <div class="timer-subtitle">17 июля 2027 · 16:00</div>
             <div class="timer-grid" id="timer">
                 <div class="timer-cell"><span class="timer-num" id="days">—</span><span class="timer-lbl">дней</span></div>
                 <div class="timer-cell"><span class="timer-num" id="hours">—</span><span class="timer-lbl">часов</span></div>
@@ -454,11 +425,6 @@
                 <span class="address-cta">Открыть в Яндекс.Картах</span>
             </div>
         </a>
-
-        <div class="actions">
-            <button class="btn-action" id="addToCalendar" type="button">📅 Добавить в календарь</button>
-            <a class="btn-action" href="https://yandex.ru/maps/10174/saint-petersburg-and-leningrad-oblast/house/territoriya_troitskaya_gora_33a/ZkAYfgRlQEIHQFtjfXR3dnVhYw==/?ll=29.835970%2C59.867927&z=17" target="_blank" rel="noopener noreferrer">📍 Маршрут</a>
-        </div>
 
         <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
 
@@ -562,36 +528,6 @@
 
         updateTimer();
         setInterval(updateTimer, 1000);
-
-        document.getElementById('addToCalendar').addEventListener('click', () => {
-            const dtStart = '20270717T130000Z';
-            const dtEnd = '20270717T200000Z';
-            const ics = [
-                'BEGIN:VCALENDAR',
-                'VERSION:2.0',
-                'PRODID:-//Wedding//RU',
-                'BEGIN:VEVENT',
-                'UID:' + Date.now() + '@wedding',
-                'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
-                'DTSTART:' + dtStart,
-                'DTEND:' + dtEnd,
-                'SUMMARY:Свадьба Михаила и Кристины',
-                'LOCATION:территория Троицкая Гора, 33А, посёлок Троицкая Гора, Ленинградская область',
-                'DESCRIPTION:Ждём вас на нашей свадьбе!',
-                'END:VEVENT',
-                'END:VCALENDAR'
-            ].join('\r\n');
-
-            const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'wedding-mikhail-kristina.ics';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        });
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
