@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу Михаила и Кристины</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #5d4a41; 
@@ -37,35 +37,35 @@
             padding: 0;
         }
         
-        /* Исправленный блок адреса с адаптивным выделяемым текстом */
+        /* Исправленный блок адреса: безопасный переход и выделение текста */
         .address-section {
-            padding: 20px 15px; 
             margin: 20px 10px;
             background: #fdfefb; 
             border-radius: 25px; 
             box-shadow: 0 10px 25px rgba(93, 74, 65, 0.1);
             border: 1px solid rgba(93, 74, 65, 0.15);
-            cursor: pointer;
-            transition: all 0.3s ease;
             position: relative;
+            transition: background-color 0.3s ease;
         }
 
         .address-section:hover {
-            background-color: #f6f8f0; /* Легкая подсветка плашки при наведении */
+            background-color: #f6f8f0;
         }
 
-        /* Невидимая ссылка-обертка для корректного клика */
-        .map-click-overlay {
+        /* Настоящая ссылка поверх плашки, которая без сбоев открывается на iOS и Android */
+        .map-redirect-link {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
+            text-decoration: none;
         }
 
-        /* Текстовые стили внутри плашки (с повышенным z-index для выделения) */
+        /* Контейнер с текстом: pointer-events: auto разрешает выделение */
         .address-text-container {
+            padding: 20px 15px;
             position: relative;
             z-index: 2;
             pointer-events: auto;
@@ -81,7 +81,7 @@
         }
 
         .place-address {
-            font-size: 0.85rem; /* Уменьшенный размер шрифта */
+            font-size: 0.85rem;
             display: block;
             line-height: 1.35;
             color: #55443b;
@@ -159,10 +159,12 @@
         <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Стилизованный блок адреса с рабочей ссылкой и выделением текста -->
-        <div class="address-section" onclick="window.open('https://yandex.ru/maps/10174/saint-petersburg-and-leningrad-oblast/house/territoriya_troitskaya_gora_33a/ZkAYfgRlQEIHQFtjfXR3dnVhYw==/?ll=29.835970%2C59.867927&z=17', '_blank');">
-            <div class="map-click-overlay"></div>
-            <div class="address-text-container" onclick="event.stopPropagation();">
+        <!-- Стилизованный блок адреса: безопасный переход и выделение текста -->
+        <div class="address-section">
+            <!-- Прямая нативная ссылка для мобильных браузеров -->
+            <a class="map-redirect-link" href="https://yandex.ru/maps/10174/saint-petersburg-and-leningrad-oblast/house/territoriya_troitskaya_gora_33a/ZkAYfgRlQEIHQFtjfXR3dnVhYw==/?ll=29.835970%2C59.867927&z=17" target="_blank"></a>
+            
+            <div class="address-text-container">
                 <span class="place-title">Локация торжества: "Амбар №1"</span>
                 <span class="place-address">территория Троицкая Гора, 33А, посёлок Троицкая Гора, Низинское сельское поселение, Ломоносовский район, Ленинградская область, 188501</span>
             </div>
