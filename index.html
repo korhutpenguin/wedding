@@ -80,7 +80,7 @@
         /* Интерактивный блок опросника */
         section.rsvp-section { 
             padding: 30px 25px; 
-            margin: 25px 15px 10px 15px;
+            margin: 25px 15px 25px 15px;
             background: #fdfefb; 
             border-radius: 25px; 
             box-shadow: 0 10px 25px rgba(93, 74, 65, 0.1);
@@ -148,18 +148,7 @@
         <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Контейнер со второй картинкой и кликабельным адресом сверху -->
-        <div class="content-wrapper">
-            <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
-            
-            <!-- Ссылка на карты по точным географическим координатам -->
-            <a href="https://yandex.ru" target="_blank" class="map-link" title="Открыть в картах">
-                <span class="place-title">"Амбар №1"</span>
-                <span class="place-address">территория Троицкая Гора, 33А, посёлок Троицкая Гора, Низинское сельское поселение, Ломоносовский район, Ленинградская область, 188501</span>
-            </a>
-        </div>
-
-        <!-- Опросник RSVP -->
+        <!-- Перенесенный опросник RSVP (теперь между картинками) -->
         <section class="rsvp-section">
             <h2>Подтвердите присутствие</h2>
             <p style="margin-bottom: 25px; font-size: 1.2rem; color: #66554b;">Пожалуйста, ответьте на вопросы до 15 июня 2027 года.</p>
@@ -187,6 +176,17 @@
                 <button type="submit" id="submitBtn">Отправить ответ</button>
             </form>
         </section>
+
+        <!-- Контейнер со второй картинкой и кликабельным адресом сверху -->
+        <div class="content-wrapper">
+            <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
+            
+            <!-- Ссылка на карты по точным географическим координатам -->
+            <a href="https://yandex.ru" target="_blank" class="map-link" title="Открыть в картах">
+                <span class="place-title">"Амбар №1"</span>
+                <span class="place-address">территория Троицкая Гора, 33А, посёлок Троицкая Гора, Низинское сельское поселение, Ломоносовский район, Ленинградская область, 188501</span>
+            </a>
+        </div>
     </div>
 
     <script>
