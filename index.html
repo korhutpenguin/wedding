@@ -6,7 +6,7 @@
     <title>Приглашение на свадьбу Михаила и Кристины</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Marck+Script&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #5d4a41;
@@ -67,9 +67,8 @@
         }
 
         .timer-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.5rem;
+            font-family: 'Marck Script', cursive;
+            font-size: 1.9rem;
             color: var(--primary);
             margin-bottom: 2px;
             line-height: 1.2;
@@ -77,10 +76,10 @@
         }
 
         .timer-subtitle {
-            font-size: 0.95rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
             color: #7a685c;
             margin-bottom: 14px;
-            font-style: italic;
             letter-spacing: 0.02em;
         }
 
@@ -99,6 +98,7 @@
 
         .timer-num {
             display: block;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.45rem;
             font-weight: 600;
             color: var(--accent);
@@ -108,6 +108,7 @@
 
         .timer-lbl {
             display: block;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -140,11 +141,10 @@
         .address-text-container { padding: 25px 22px; }
 
         .place-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.7rem;
+            font-family: 'Marck Script', cursive;
+            font-size: 2rem;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: var(--primary);
             line-height: 1.2;
             font-weight: 400;
@@ -152,14 +152,19 @@
 
         .place-address {
             display: block;
-            font-size: 1.05rem;
-            line-height: 1.45;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 1.5;
             color: #55443b;
+            letter-spacing: 0.01em;
         }
 
         .address-cta {
             display: inline-block;
             margin-top: 12px;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
             color: var(--accent);
             font-weight: 600;
@@ -186,9 +191,8 @@
         }
 
         h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 2.1rem;
+            font-family: 'Marck Script', cursive;
+            font-size: 2.4rem;
             color: var(--primary);
             margin-bottom: 12px;
             font-weight: 400;
@@ -341,9 +345,8 @@
         .modal-icon { font-size: 3rem; margin-bottom: 12px; display: block; }
 
         .modal-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.9rem;
+            font-family: 'Marck Script', cursive;
+            font-size: 2.1rem;
             color: var(--primary);
             margin-bottom: 10px;
             line-height: 1.15;
@@ -383,10 +386,12 @@
         /* ===== МОБИЛЬНАЯ ===== */
         @media (max-width: 420px) {
             body { font-size: 1.15rem; }
-            .timer-title, .place-title { font-size: 1.45rem; }
-            h2, .modal-title { font-size: 1.8rem; }
+            .timer-title { font-size: 1.6rem; }
+            .place-title { font-size: 1.7rem; }
+            h2, .modal-title { font-size: 2rem; }
             .timer-num { font-size: 1.25rem; }
             .timer-lbl { font-size: 0.65rem; }
+            .place-address { font-size: 1rem; }
             section.rsvp-section { padding: 25px 18px; margin: 20px 10px 10px; }
             .address-section-link { margin: 15px 10px; }
         }
