@@ -8,8 +8,7 @@
     <style>
         :root {
             --primary-color: #5d4a41; 
-            --bg-color: #d1dcab;      
-            --card-bg: #d1dcab;       
+            --bg-color: #C7D4A7; /* Точный оливковый цвет фона из макета */
             --text-color: #4a3b32;
         }
         
@@ -34,22 +33,23 @@
         }
 
         .top-photo {
-            margin-bottom: -5px; /* Убираем зазор между изображениями */
+            margin-bottom: -2px; /* Исключаем микрозазоры между склейкой макетов */
         }
         
+        /* Контрастная карточка опроса для удобства чтения */
         section.rsvp-section { 
             padding: 30px 25px; 
-            margin: 20px 15px;
-            background: #f4f6f0; 
+            margin: 30px 15px 10px 15px;
+            background: #ffffff; 
             border-radius: 25px; 
-            box-shadow: 0 10px 25px rgba(93, 74, 65, 0.15);
-            border: 1px solid rgba(93, 74, 65, 0.2);
+            box-shadow: 0 10px 25px rgba(93, 74, 65, 0.12);
+            border: 1px solid rgba(93, 74, 65, 0.15);
         }
 
         h2 { 
             font-size: 2.2rem; 
             color: var(--primary-color); 
-            margin-bottom: 20px; 
+            margin-bottom: 15px; 
             font-weight: 400;
             font-style: italic;
         }
@@ -59,34 +59,35 @@
         
         input[type="text"], select, button { 
             padding: 14px; 
-            border: 1px solid rgba(93, 74, 65, 0.4); 
+            border: 1px solid rgba(93, 74, 65, 0.3); 
             border-radius: 12px; 
             font-family: inherit; 
             font-size: 1.1rem; 
             width: 100%; 
-            background: #ffffff;
+            background: #fcfcfc;
         }
         
         input[type="text"]:focus, select:focus {
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 5px rgba(93, 74, 65, 0.3);
+            border-color: #707A5E;
+            box-shadow: 0 0 5px rgba(112, 122, 94, 0.3);
+            background: #ffffff;
         }
         
         .checkbox-group { 
             display: flex; 
             flex-direction: column; 
             gap: 10px; 
-            background: #ffffff; 
+            background: #fdfdfd; 
             padding: 15px; 
-            border: 1px solid rgba(93, 74, 65, 0.3); 
+            border: 1px solid rgba(93, 74, 65, 0.2); 
             border-radius: 12px; 
         }
-        .checkbox-label { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; cursor: pointer; }
-        .checkbox-label input { width: 20px; height: 20px; cursor: pointer; accent-color: var(--primary-color); }
+        .checkbox-label { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; cursor: pointer; color: #4a4a4a; }
+        .checkbox-label input { width: 20px; height: 20px; cursor: pointer; accent-color: #707A5E; }
 
         button { 
-            background-color: #707A5E; 
+            background-color: #707A5E; /* Свадебный зеленый оттенок для кнопки */
             color: white; 
             border: none; 
             cursor: pointer; 
@@ -94,7 +95,7 @@
             font-weight: 600; 
             font-size: 1.3rem;
             margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(112, 122, 94, 0.3);
+            box-shadow: 0 4px 12px rgba(112, 122, 94, 0.25);
         }
         button:hover { background-color: #5B644D; transform: translateY(-1px); }
         button:disabled { background-color: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
@@ -103,16 +104,16 @@
 <body>
 
     <div class="container">
-        <!-- Первая картинка (Молодожены и заголовок) -->
+        <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Вторая картинка (Инфо, Тайминг, Дресс-код и Пожелания) -->
+        <!-- Вторая картинка (Программа, Дресс-код, Пожелания) -->
         <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
 
-        <!-- Опросник RSVP, подстроенный под общий стиль -->
+        <!-- Стилизованный опросник RSVP -->
         <section class="rsvp-section">
             <h2>Подтвердите присутствие</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem;">Пожалуйста, ответьте на вопросы до 15 июня 2027 года.</p>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: #66554b;">Пожалуйста, ответьте на вопросы до 15 июня 2027 года.</p>
             
             <form id="rsvpForm">
                 <label class="form-label" for="guestName">Ваше имя:</label>
@@ -140,7 +141,7 @@
     </div>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza5408nofoVby44zwsssadZjXEXhuhvmG3g2_bFtKuNZLnznpwwp_stlcbFdYkyPycOA/exec';
+        const GOOGLE_SCRIPT_URL = 'https://google.com';
 
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
