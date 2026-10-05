@@ -21,6 +21,8 @@
             line-height: 1.5;
             text-align: center;
             font-size: 1.3rem;
+            -webkit-user-select: text;
+            user-select: text;
         }
         
         .container { max-width: 500px; margin: 0 auto; padding-bottom: 40px; background-color: var(--bg-color); }
@@ -35,7 +37,7 @@
             padding: 0;
         }
         
-        /* Исправленный компактный блок адреса с адаптивным шрифтом */
+        /* Исправленный блок адреса с адаптивным выделяемым текстом */
         .address-section {
             padding: 20px 15px; 
             margin: 20px 10px;
@@ -43,23 +45,34 @@
             border-radius: 25px; 
             box-shadow: 0 10px 25px rgba(93, 74, 65, 0.1);
             border: 1px solid rgba(93, 74, 65, 0.15);
-        }
-
-        .map-link {
-            display: block;
-            text-decoration: none;
-            color: inherit;
+            cursor: pointer;
             transition: all 0.3s ease;
-            padding: 5px;
-            border-radius: 12px;
+            position: relative;
         }
 
-        .map-link:hover {
-            background-color: rgba(112, 122, 94, 0.08); /* Легкая подсветка */
+        .address-section:hover {
+            background-color: #f6f8f0; /* Легкая подсветка плашки при наведении */
         }
 
-        .map-link .place-title {
-            font-size: 1.6rem;
+        /* Невидимая ссылка-обертка для корректного клика */
+        .map-click-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        /* Текстовые стили внутри плашки (с повышенным z-index для выделения) */
+        .address-text-container {
+            position: relative;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        .place-title {
+            font-size: 1.4rem;
             display: block;
             margin-bottom: 6px;
             color: var(--primary-color);
@@ -67,13 +80,12 @@
             line-height: 1.2;
         }
 
-        .map-link .place-address {
-            font-size: 0.9rem; /* Уменьшенный размер шрифта для длинного текста */
+        .place-address {
+            font-size: 0.85rem; /* Уменьшенный размер шрифта */
             display: block;
             line-height: 1.35;
             color: #55443b;
             font-weight: 400;
-            word-wrap: break-word;
         }
         
         /* Интерактивный блок опросника в самом конце */
@@ -147,12 +159,13 @@
         <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Перенесенный блок адреса с обновленной рабочей ссылкой -->
-        <div class="address-section">
-            <a href="https://share.google/34fk6Pl9Z1S31N8su" target="_blank" class="map-link" title="Открыть карту">
+        <!-- Стилизованный блок адреса с рабочей ссылкой и выделением текста -->
+        <div class="address-section" onclick="window.open('https://yandex.ru/maps/10174/saint-petersburg-and-leningrad-oblast/house/territoriya_troitskaya_gora_33a/ZkAYfgRlQEIHQFtjfXR3dnVhYw==/?ll=29.835970%2C59.867927&z=17', '_blank');">
+            <div class="map-click-overlay"></div>
+            <div class="address-text-container" onclick="event.stopPropagation();">
                 <span class="place-title">Локация торжества: "Амбар №1"</span>
                 <span class="place-address">территория Троицкая Гора, 33А, посёлок Троицкая Гора, Низинское сельское поселение, Ломоносовский район, Ленинградская область, 188501</span>
-            </a>
+            </div>
         </div>
 
         <!-- Вторая картинка (Информация о свадьбе) -->
@@ -189,7 +202,7 @@
     </div>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza5408nofoVby44zwsssadZjXEXhuhvmG3g2_bFtKuNZLnznpwwp_stlcbFdYkyPycOA/exec';
+        const GOOGLE_SCRIPT_URL = 'https://google.com';
 
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
