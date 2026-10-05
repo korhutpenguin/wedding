@@ -8,7 +8,7 @@
     <style>
         :root {
             --primary-color: #5d4a41; 
-            --bg-color: #D2DC9A; /* Идеально точный глубокий фисташковый цвет фона */
+            --bg-color: #D2DC9A; /* Точный фисташковый цвет фона */
             --text-color: #4a3b32;
         }
         
@@ -25,18 +25,24 @@
         
         .container { max-width: 500px; margin: 0 auto; padding-bottom: 40px; background-color: var(--bg-color); }
         
+        /* Убираем любые браузерные тени, обводки и потемнения на стыках картинок */
         .top-photo, .content-image {
             width: 100%;
             display: block;
             height: auto;
             margin: 0 auto;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            vertical-align: bottom;
+            filter: drop-shadow(0 0 0 transparent);
         }
 
         .top-photo {
-            margin-bottom: -2px; /* Исключаем микрозазоры между склейкой макетов */
+            margin-bottom: 0;
         }
         
-        /* Контрастная карточка опроса для удобства чтения */
+        /* Контрастная карточка опроса */
         section.rsvp-section { 
             padding: 30px 25px; 
             margin: 30px 15px 10px 15px;
