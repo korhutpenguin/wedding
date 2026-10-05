@@ -54,9 +54,7 @@
             animation: fadeInUp 0.8s ease-out both;
         }
 
-        .content-image {
-            animation-delay: 0.2s;
-        }
+        .content-image { animation-delay: 0.2s; }
 
         .address-section-link {
             display: block;
@@ -77,14 +75,9 @@
             box-shadow: 0 14px 30px rgba(93, 74, 65, 0.15);
         }
 
-        .address-section-link:active {
-            transform: translateY(0);
-        }
+        .address-section-link:active { transform: translateY(0); }
 
-        .address-text-container {
-            padding: 25px 20px;
-            pointer-events: auto;
-        }
+        .address-text-container { padding: 25px 20px; pointer-events: auto; }
 
         .place-title {
             font-size: 1.8rem;
@@ -162,9 +155,7 @@
             background: #ffffff;
         }
 
-        input[type="text"]:invalid:not(:placeholder-shown) {
-            border-color: #c0392b;
-        }
+        input[type="text"]:invalid:not(:placeholder-shown) { border-color: #c0392b; }
 
         .checkbox-group {
             display: flex;
@@ -187,9 +178,7 @@
             transition: color 0.2s;
         }
 
-        .checkbox-label:hover {
-            color: var(--primary-color);
-        }
+        .checkbox-label:hover { color: var(--primary-color); }
 
         .checkbox-label input {
             width: 20px;
@@ -217,9 +206,7 @@
             box-shadow: 0 6px 16px rgba(112, 122, 94, 0.3);
         }
 
-        button:active {
-            transform: translateY(0);
-        }
+        button:active { transform: translateY(0); }
 
         button:disabled {
             background-color: #ccc;
@@ -255,10 +242,7 @@
             z-index: 1000;
         }
 
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
 
         .modal {
             background: var(--card-bg);
@@ -272,15 +256,9 @@
             text-align: center;
         }
 
-        .modal-overlay.active .modal {
-            transform: scale(1) translateY(0);
-        }
+        .modal-overlay.active .modal { transform: scale(1) translateY(0); }
 
-        .modal-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
+        .modal-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
 
         .modal-title {
             font-size: 1.8rem;
@@ -315,19 +293,11 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         @media (max-width: 400px) {
             body { font-size: 1.15rem; }
@@ -367,10 +337,10 @@
 
             <form id="rsvpForm" novalidate>
                 <label class="form-label" for="guestName">Ваше имя:</label>
-                <input type="text" id="guestName" placeholder="Ваше Имя и Фамилия" required autocomplete="name" minlength="2">
+                <input type="text" id="guestName" name="name" placeholder="Ваше Имя и Фамилия" required autocomplete="name" minlength="2">
 
                 <label class="form-label" for="attendance">Присутствие:</label>
-                <select id="attendance" required>
+                <select id="attendance" name="attendance" required>
                     <option value="" disabled selected>Сможете ли вы прийти?</option>
                     <option value="Да, приду">Да, с удовольствием приду</option>
                     <option value="Не смогу">К сожалению, не смогу</option>
@@ -410,6 +380,8 @@
         const modalText = document.getElementById('modalText');
         const modalClose = document.getElementById('modalClose');
 
+        let isSending = false;
+
         function showModal(icon, title, text) {
             modalIcon.textContent = icon;
             modalTitle.textContent = title;
@@ -434,6 +406,8 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
+            if (isSending) return;
+
             const nameInput = document.getElementById('guestName');
             const attendanceInput = document.getElementById('attendance');
 
@@ -456,30 +430,34 @@
                                         .map(cb => cb.value)
                                         .join(', ');
 
+            isSending = true;
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="spinner"></span>Отправка...';
 
-            const formData = {
-                name: name,
-                attendance: attendance,
-                preferences: checkedAlcohol || 'Не выбрано'
-            };
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('attendance', attendance);
+            formData.append('preferences', checkedAlcohol || 'Не выбрано');
 
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: formData
             })
-            .then(() => {
-                showModal('💌', 'Спасибо, ' + name + '!', 'Ваш ответ успешно записан. Мы очень ждём встречи!');
-                form.reset();
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.result === 'success') {
+                    showModal('💌', 'Спасибо, ' + name + '!', 'Ваш ответ успешно записан. Мы очень ждём встречи!');
+                    form.reset();
+                } else {
+                    throw new Error((data && data.message) || 'Скрипт вернул неизвестный ответ');
+                }
             })
             .catch(error => {
-                showModal('⚠️', 'Ошибка отправки', 'Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую.');
-                console.error('Ошибка:', error);
+                console.error('Ошибка отправки:', error);
+                showModal('⚠️', 'Не удалось отправить', 'Пожалуйста, проверьте подключение к интернету и попробуйте ещё раз.');
             })
             .finally(() => {
+                isSending = false;
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Отправить ответ';
             });
