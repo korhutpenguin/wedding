@@ -25,7 +25,12 @@
         
         .container { max-width: 500px; margin: 0 auto; padding-bottom: 40px; background-color: var(--bg-color); }
         
-        /* Идеальная бесшовная склейка графических макетов */
+        /* Контейнер для позиционирования элементов поверх второй картинки */
+        .content-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
         .top-photo, .content-image {
             width: 100%;
             display: block;
@@ -36,7 +41,43 @@
             padding: 0;
         }
         
-        /* Интерактивный блок опросника в цвет стиля свадьбы */
+        /* Ссылка-адрес поверх макета */
+        .map-link {
+            position: absolute;
+            top: 20.5%; /* Точное позиционирование на место текста с адресом */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            display: block;
+            text-decoration: none;
+            color: #5d4a41;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .map-link:hover {
+            background-color: rgba(93, 74, 65, 0.08); /* Легкая подсветка при наведении */
+        }
+
+        .map-link .place-title {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 2px;
+            letter-spacing: 1px;
+        }
+
+        .map-link .place-address {
+            font-size: 0.95rem;
+            display: block;
+            line-height: 1.3;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        /* Интерактивный блок опросника */
         section.rsvp-section { 
             padding: 30px 25px; 
             margin: 25px 15px 10px 15px;
@@ -107,10 +148,18 @@
         <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Вторая картинка (Программа, Дресс-код, Пожелания) -->
-        <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
+        <!-- Контейнер со второй картинкой и кликабельным адресом сверху -->
+        <div class="content-wrapper">
+            <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
+            
+            <!-- Ссылка на построенный маршрут в Яндекс Картах -->
+            <a href="https://yandex.ru/maps/-/CDHeE8Y0" target="_blank" class="map-link" title="Открыть в Яндекс Картах">
+                <span class="place-title">"Амбар №1"</span>
+                <span class="place-address">Ломоносовский р-он территория Троицкая гора д. 33А, Санкт-Петербург, Ленинградская обл., 188501</span>
+            </a>
+        </div>
 
-        <!-- Исправленный и стилизованный опросник RSVP -->
+        <!-- Опросник RSVP -->
         <section class="rsvp-section">
             <h2>Подтвердите присутствие</h2>
             <p style="margin-bottom: 25px; font-size: 1.2rem; color: #66554b;">Пожалуйста, ответьте на вопросы до 15 июня 2027 года.</p>
@@ -141,7 +190,7 @@
     </div>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://google.com';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza5408nofoVby44zwsssadZjXEXhuhvmG3g2_bFtKuNZLnznpwwp_stlcbFdYkyPycOA/exec';
 
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
