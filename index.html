@@ -35,10 +35,10 @@
             padding: 0;
         }
         
-        /* Блок адреса, оформленный как аккуратная карточка между изображениями */
+        /* Исправленный компактный блок адреса с адаптивным шрифтом */
         .address-section {
-            padding: 25px; 
-            margin: 20px 15px;
+            padding: 20px 15px; 
+            margin: 20px 10px;
             background: #fdfefb; 
             border-radius: 25px; 
             box-shadow: 0 10px 25px rgba(93, 74, 65, 0.1);
@@ -55,23 +55,25 @@
         }
 
         .map-link:hover {
-            background-color: rgba(112, 122, 94, 0.08); /* Легкая подсветка при наведении */
+            background-color: rgba(112, 122, 94, 0.08); /* Легкая подсветка */
         }
 
         .map-link .place-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--primary-color);
             font-style: italic;
+            line-height: 1.2;
         }
 
         .map-link .place-address {
-            font-size: 1rem;
+            font-size: 0.9rem; /* Уменьшенный размер шрифта для длинного текста */
             display: block;
-            line-height: 1.4;
+            line-height: 1.35;
             color: #55443b;
             font-weight: 400;
+            word-wrap: break-word;
         }
         
         /* Интерактивный блок опросника в самом конце */
@@ -145,11 +147,10 @@
         <!-- Первая картинка (Молодожены) -->
         <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <!-- Перенесенный блок адреса (теперь между картинками) -->
+        <!-- Перенесенный блок адреса с обновленной рабочей ссылкой -->
         <div class="address-section">
-            <!-- Ссылка на карты по точным географическим координатам -->
-            <a href="https://yandex.ru" target="_blank" class="map-link" title="Открыть в Яндекс Картах">
-                <span class="place-title">Локация торжества:"Амбар №1"</span>
+            <a href="https://share.google/34fk6Pl9Z1S31N8su" target="_blank" class="map-link" title="Открыть карту">
+                <span class="place-title">Локация торжества: "Амбар №1"</span>
                 <span class="place-address">территория Троицкая Гора, 33А, посёлок Троицкая Гора, Низинское сельское поселение, Ломоносовский район, Ленинградская область, 188501</span>
             </a>
         </div>
@@ -157,7 +158,7 @@
         <!-- Вторая картинка (Информация о свадьбе) -->
         <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
 
-        <!-- Опросник RSVP (в конце страницы) -->
+        <!-- Опросник RSVP -->
         <section class="rsvp-section">
             <h2>Подтвердите присутствие</h2>
             <p style="margin-bottom: 25px; font-size: 1.2rem; color: #66554b;">Пожалуйста, ответьте на вопросы до 15 июня 2027 года.</p>
@@ -188,7 +189,7 @@
     </div>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://google.com';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza5408nofoVby44zwsssadZjXEXhuhvmG3g2_bFtKuNZLnznpwwp_stlcbFdYkyPycOA/exec';
 
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
