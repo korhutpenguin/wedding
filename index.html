@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу Михаила и Кристины</title>
-    <!-- Подключаем элегантный свадебный шрифт -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #707A5E; /* Оливковый цвет */
-            --accent-color: #8C6B53;  /* Коричневый акцент */
-            --bg-color: #E2E7D5;      /* Нежный оливковый фон сайта */
-            --card-bg: #F4F6F0;       /* Цвет подложки для блоков */
-            --text-color: #3D4434;
+            --primary-color: #5d4a41; 
+            --bg-color: #d1dcab;      
+            --card-bg: #d1dcab;       
+            --text-color: #4a3b32;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,120 +19,47 @@
             font-family: 'Cormorant Garamond', serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.5;
             text-align: center;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
         }
         
-        .container { max-width: 500px; margin: 0 auto; padding: 0 15px 40px 15px; }
+        .container { max-width: 500px; margin: 0 auto; padding-bottom: 40px; background-color: var(--bg-color); }
         
-        /* Главная фотография молодоженов вверху */
-        .main-photo {
+        .top-photo, .content-image {
             width: 100%;
-            max-width: 500px;
-            height: auto;
             display: block;
+            height: auto;
             margin: 0 auto;
-            border-bottom: 4px solid var(--primary-color);
-        }
-        
-        header {
-            padding: 40px 20px;
-            margin-bottom: 20px;
-        }
-        
-        .names {
-            font-size: 3.5rem;
-            font-style: italic;
-            color: var(--primary-color);
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-        
-        .main-date {
-            font-size: 1.8rem;
-            letter-spacing: 4px;
-            color: var(--accent-color);
-            border-top: 1px solid var(--primary-color);
-            border-bottom: 1px solid var(--primary-color);
-            display: inline-block;
-            padding: 5px 20px;
-            margin-top: 10px;
-        }
-        
-        /* Фигурные плашки-переходы под заголовки */
-        .vintage-frame {
-            background-image: url('frame.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 280px;
-            height: 90px;
-            margin: 0 auto 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
         }
 
-        .vintage-frame h2 {
-            font-size: 2rem; 
-            color: #5d4a41; /* Более темный винтажный оттенок для читаемости на розовой плашке */
-            font-weight: 400;
-            font-style: italic;
-            line-height: 1.1;
+        .top-photo {
+            margin-bottom: -5px; /* Убираем зазор между изображениями */
         }
         
-        /* Оформление карточек */
-        section { 
-            padding: 40px 25px; 
-            margin-bottom: 30px; 
-            background: var(--card-bg); 
-            border-radius: 30px 30px 0 0; 
-            box-shadow: 0 10px 25px rgba(112, 122, 94, 0.15);
-            border: 1px solid rgba(112, 122, 94, 0.2);
+        section.rsvp-section { 
+            padding: 30px 25px; 
+            margin: 20px 15px;
+            background: #f4f6f0; 
+            border-radius: 25px; 
+            box-shadow: 0 10px 25px rgba(93, 74, 65, 0.15);
+            border: 1px solid rgba(93, 74, 65, 0.2);
         }
-        
-        h3 { 
-            font-size: 1.5rem; 
+
+        h2 { 
+            font-size: 2.2rem; 
             color: var(--primary-color); 
-            margin: 25px 0 10px 0; 
-            font-weight: 600; 
+            margin-bottom: 20px; 
+            font-weight: 400;
+            font-style: italic;
         }
         
-        /* Тайминг */
-        .timeline { list-style: none; text-align: left; max-width: 320px; margin: 0 auto; }
-        .timeline li { 
-            margin-bottom: 15px; 
-            padding-left: 25px; 
-            position: relative;
-        }
-        .timeline li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-        .time { font-weight: 600; color: var(--primary-color); font-size: 1.4rem; margin-right: 10px; }
-
-        /* Кружочки дресс-кода */
-        .colors { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px auto 10px auto; max-width: 320px; }
-        .color-circle { 
-            width: 48px; 
-            height: 48px; 
-            border-radius: 50%; 
-            border: 2px solid #ffffff; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-        }
-
-        /* Форма RSVP */
-        form { display: flex; flex-direction: column; gap: 15px; max-width: 350px; margin: 0 auto; text-align: left; }
+        form { display: flex; flex-direction: column; gap: 15px; max-width: 100%; margin: 0 auto; text-align: left; }
         label.form-label { font-weight: 600; color: var(--primary-color); margin-bottom: -5px; display: block; font-size: 1.2rem; }
         
         input[type="text"], select, button { 
             padding: 14px; 
-            border: 1px solid rgba(112, 122, 94, 0.4); 
+            border: 1px solid rgba(93, 74, 65, 0.4); 
             border-radius: 12px; 
             font-family: inherit; 
             font-size: 1.1rem; 
@@ -145,7 +70,7 @@
         input[type="text"]:focus, select:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 5px rgba(112, 122, 94, 0.3);
+            box-shadow: 0 0 5px rgba(93, 74, 65, 0.3);
         }
         
         .checkbox-group { 
@@ -154,14 +79,14 @@
             gap: 10px; 
             background: #ffffff; 
             padding: 15px; 
-            border: 1px solid rgba(112, 122, 94, 0.3); 
+            border: 1px solid rgba(93, 74, 65, 0.3); 
             border-radius: 12px; 
         }
         .checkbox-label { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; cursor: pointer; }
         .checkbox-label input { width: 20px; height: 20px; cursor: pointer; accent-color: var(--primary-color); }
 
         button { 
-            background-color: var(--primary-color); 
+            background-color: #707A5E; 
             color: white; 
             border: none; 
             cursor: pointer; 
@@ -177,63 +102,17 @@
 </head>
 <body>
 
-    <!-- Главное фото молодоженов -->
-    <img src="photo.png" alt="Михаил и Кристина" class="main-photo">
-
     <div class="container">
-        
-        <header>
-            <h1 class="names">Михаил<br>&<br>Кристина</h1>
-            <p style="font-style: italic;">Приглашаем вас разделить с нами этот особенный день!</p>
-            <div class="main-date">17 . 07 . 2027</div>
-        </header>
+        <!-- Первая картинка (Молодожены и заголовок) -->
+        <img src="photo1.png" alt="Кристина и Михаил" class="top-photo">
 
-        <section>
-            <div class="vintage-frame">
-                <h2>Дорогие близкие!</h2>
-            </div>
-            <p>В нашей жизни зарождается новая прекрасная история — наша семья. Мы будем счастливы видеть вас на торжестве, посвященном нашему дню бракосочетания.</p>
-        </section>
+        <!-- Вторая картинка (Инфо, Тайминг, Дресс-код и Пожелания) -->
+        <img src="photo2.png" alt="Информация о свадьбе" class="content-image">
 
-        <section>
-            <div class="vintage-frame">
-                <h2>Программа дня</h2>
-            </div>
-            <ul class="timeline">
-                <li><span class="time">16:00</span> Сбор гостей и фуршет</li>
-                <li><span class="time">16:30</span> Церемония регистрации</li>
-                <li><span class="time">18:00</span> Свадебный ужин</li>
-            </ul>
-        </section>
-
-        <section>
-            <div class="vintage-frame">
-                <h2>Дресс-код</h2>
-            </div>
-            <p>Мы будем очень рады, если при выборе праздничных нарядов вы поддержите цветовую гамму нашей свадьбы:</p>
-            
-            <h3>Для прекрасных дам:</h3>
-            <div class="colors">
-                <div class="color-circle" style="background-color: #E6E6FA;" title="Лавандовый"></div>
-                <div class="color-circle" style="background-color: #FFFDD0;" title="Сливочный (бежевый)"></div>
-                <div class="color-circle" style="background-color: #FFC0CB;" title="Нежно-розовый"></div>
-                <div class="color-circle" style="background-color: #2E7D32;" title="Зеленый"></div>
-                <div class="color-circle" style="background-color: #98FB98;" title="Светло-зеленый"></div>
-                <div class="color-circle" style="background-color: #FF00FF;" title="Фуксия"></div>
-                <div class="color-circle" style="background-color: #7092BE;" title="Голубой"></div>
-                <div class="color-circle" style="background-color: #87CEEB;" title="Небесно-голубой"></div>
-                <div class="color-circle" style="background-color: #FF9800;" title="Оранжевый"></div>
-            </div>
-
-            <h3>Для уважаемых мужчин:</h3>
-            <p style="margin-top: 5px;">Будем признательны, если вы выберете темный низ (брюки) и светлую рубашку или поло.</p>
-        </section>
-
-        <section>
-            <div class="vintage-frame">
-                <h2>Ждем вас!</h2>
-            </div>
-            <p style="margin-bottom: 25px;">Пожалуйста, подтвердите ваше присутствие, ответив на вопросы до 15 июня 2027 года.</p>
+        <!-- Опросник RSVP, подстроенный под общий стиль -->
+        <section class="rsvp-section">
+            <h2>Подтвердите присутствие</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem;">Пожалуйста, ответьте на вопросы до 15 июня 2027 года.</p>
             
             <form id="rsvpForm">
                 <label class="form-label" for="guestName">Ваше имя:</label>
@@ -254,7 +133,7 @@
                     <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Крепкий алкоголь"> Крепкий алкоголь</label>
                     <label class="checkbox-label"><input type="checkbox" name="alcohol" value="Безалкогольные напитки"> Не пью алкоголь</label>
                 </div>
-
+                
                 <button type="submit" id="submitBtn">Отправить ответ</button>
             </form>
         </section>
